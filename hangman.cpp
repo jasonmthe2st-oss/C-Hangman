@@ -189,10 +189,17 @@ std::string pickRandomWord() {
 char inputAndValidateGuess(PlayerData& game) {
     //validates for string with size 1
     std::string userInput = "";
-    while ((!getline(std::cin, userInput)) && (userInput.size() > 1)) {
-        std::cout << "Invalid input! Guess again: ";
-        std::cin.clear(); //clears errors
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //ignores warnings
+    while (true) {
+        if (!std::getline(std::cin, userInput)) {
+            std::cin.clear();
+            std::cout << "Input error! Guess again: ";
+            continue;
+        }
+        if (userInput.length() != 1) {
+            std::cout << "Invalid input! Guess again: ";
+            continue;
+        }
+        break;
     }
     
     //converts uppercase letters to lowercase letters
@@ -220,7 +227,7 @@ int main() {
     //Runs this while the win condition is false, and while remainingFails is positive.
     while ((game.checkIfWon(theWord) == false) && game.remainingFails > 0) {
         printMenu(game, theWord);
-        std::cout << "Guess a letter (spaces count): " << std::endl;
+        std::cout << "Guess a letter (spaces count): ";
         char guess = inputAndValidateGuess(game);
         game.insertGuess(guess);
 
