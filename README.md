@@ -11,6 +11,9 @@ The program picks from a selection of 30 or so random words and chooses that as 
 ## Controls
 The user may input any ASCII-supported character.
 
+## Compiling
+The game is compiled via normal means (g++ worked fine). 
+
 ## Future Goals
 1. I'd like to implement a user-inputted word mode, where the user may type the word, and another player can play.
 2. I want to implement a 20-50-step visual progression for the titular Hang Man, and have its progression scale based on how many guessed you get.
