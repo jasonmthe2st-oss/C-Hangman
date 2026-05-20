@@ -1,4 +1,4 @@
-# C-Hangman
+# C++-Hangman
 Plays a random game of Hangman using a CLI (command line interface).
 The program picks from a selection of 30 or so random words and chooses that as the target of play.
 
